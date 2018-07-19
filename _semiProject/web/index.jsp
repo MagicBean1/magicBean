@@ -4,7 +4,7 @@
 <!-- Header.jsp -->
 <%@ include file= 'views/common/header.jsp' %> <!-- 파일 include. header.jsp 파일을 읽어들인다 -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css?var=1"> <!-- index.css -->
-
+하하하하하 나는용석이다 용용죽겠지!!!!
 <style>
 </style>
 
