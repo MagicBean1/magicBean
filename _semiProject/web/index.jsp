@@ -42,7 +42,7 @@ $(function() {
 	            <p>BIKEE를 이용하길 원하는 분은 언제나 이용할 수 있습니다.</p>
 	        </div>
     	</div>
-    기훈이형 용용죽겠지~~~
+    기훈이형 용용죽겠지~~~하하하하하하
     	<div class="item">
             <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/2.jpg"></a>
        		<div class="carousel-caption">
