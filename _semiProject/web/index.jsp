@@ -112,7 +112,7 @@ $(function() {
         <div class="col-sm-4">
                 <a href="#"><span class="glyphicon logo glyphicon-lock"></span></a>
             <h4>JOB</h4>
-            <p>자전거를 타면 취업이..!!</p>
+            <p>자전거를 타면 취업이. 안돼 공부해!!!!!</p>
         </div>
     </div>
     <div class="row">
