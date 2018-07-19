@@ -4,7 +4,6 @@
 <!-- Header.jsp -->
 <%@ include file= 'views/common/header.jsp' %> <!-- 파일 include. header.jsp 파일을 읽어들인다 -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css?var=1"> <!-- index.css -->
-하하하하하 나는용석이다 용용죽겠지!!!!
 <style>
 </style>
 
@@ -42,8 +41,6 @@ $(function() {
 	            <p>BIKEE를 이용하길 원하는 분은 언제나 이용할 수 있습니다.</p>
 	        </div>
     	</div>
-    기훈이형 용용죽겠지~~~하하하하하하
-    한번도 올릴게요!! 하하
     	<div class="item">
             <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/2.jpg"></a>
        		<div class="carousel-caption">
