@@ -36,6 +36,7 @@ $(function() {
 lkjlkjlkj
 zlzlzlzl왜안돼
 잘 되는데?
+석이 너도 안돼??
     	<div class="item">
 	        <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/1.jpg"></a>
 	        <div class="carousel-caption">
