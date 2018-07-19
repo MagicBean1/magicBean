@@ -34,7 +34,7 @@ $(function() {
 	        </div>
 	    </div>
 lkjlkjlkj
-zlzlzlzl
+zlzlzlzl왜안돼
     	<div class="item">
 	        <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/1.jpg"></a>
 	        <div class="carousel-caption">
