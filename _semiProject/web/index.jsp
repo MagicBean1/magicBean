@@ -4,6 +4,7 @@
 <!-- Header.jsp -->
 <%@ include file= 'views/common/header.jsp' %> <!-- 파일 include. header.jsp 파일을 읽어들인다 -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css?var=1"> <!-- index.css -->
+
 <style>
 </style>
 
@@ -33,9 +34,7 @@ $(function() {
 	            <p>BIKEE는 남녀노소 누구나 이용 가능합니다.</p>
 	        </div>
 	    </div>
-lkjlkjlkj
-zlzlzlzl왜안돼
-잘 되는데?
+
     	<div class="item">
 	        <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/1.jpg"></a>
 	        <div class="carousel-caption">
