@@ -91,7 +91,7 @@ function validate() {
             		    <li><a href="<%= request.getContextPath() %>/member/memberLogout"><span class="glyphicon glyphicon-user"> Logout</span></a></li>
 	            	<% } else { %>
 					<li><a href="#" data-toggle="modal" data-target="#loginModal" data-backdroup="static"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="<%= request.getContextPath() %>/views/member/memberEnroll.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="<%= request.getContextPath() %>/views/member/joinTerms.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <% } %>
 	            </ul>
 	        </div>
