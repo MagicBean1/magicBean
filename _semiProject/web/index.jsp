@@ -143,7 +143,7 @@ $(function() {
         <div class="col-sm-4">
                 <a href="#"><i class="fas fa-home"></i></a>
             <h4>SEARCH</h4>
-            <p>자전거를 타면 실력이..!!</p>
+            <p>자전거를 타 면 실력이..!!</p>
         </div>
         <div class="col-sm-4">
                 <a href="#"><i class="fas fa-road"></i></a>
