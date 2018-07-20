@@ -59,34 +59,36 @@ $(function() {
 
 
 <!-- 이미지 포트폴리오 -->
-<div id="port" class="container-fluid text-center bg-grey">
-    <h2>자전거</h2>
-    <h4>누구나 자유롭게 이용할 수 있는 대여 시설</h4>
-    <div class="row text-center">
-        <div class="col-sm-4">
-            <div class="thumnail">
-                <img src="<%=request.getContextPath() %>/images/index/pic01.jpg" alt="test">
-                <p><strong>자전거</strong></p>
-                <p>테스트입니다.</p>
-                <button type="button" class="btn btn-primary">자세히 알아보기</button>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="thumnail">
-                <img src="<%=request.getContextPath() %>/images/index/pic02.jpg" alt="test">
-                <p><strong>자전거</strong></p>
-                <p>테스트입니다.</p>
-                <button type="button" class="btn btn-primary">자세히 알아보기</button>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="thumnail">
-                <img src="<%=request.getContextPath() %>/images/index/pic03.jpg" alt="test">
-                <p><strong>자전거</strong></p>
-                <p>테스트입니다.</p>
-                <button type="button" class="btn btn-primary">자세히 알아보기</button>
-            </div>
-        </div>
+<div id="port" class="container-fluid text-center">
+	<div class="container">
+	    <h2>자전거</h2>
+	    <h4>누구나 자유롭게 이용할 수 있는 대여 시설</h4>
+	    <div class="row text-center">
+	        <div class="col-sm-4">
+	            <div class="thumnail">
+	                <img src="<%=request.getContextPath() %>/images/index/pic01.jpg" alt="test">
+	                <p><strong>자전거</strong></p>
+	                <p>테스트입니다.</p>
+	                <button type="button" class="btn btn-primary">자세히 알아보기</button>
+	            </div>
+	        </div>
+	        <div class="col-sm-4">
+	            <div class="thumnail">
+	                <img src="<%=request.getContextPath() %>/images/index/pic02.jpg" alt="test">
+	                <p><strong>자전거</strong></p>
+	                <p>테스트입니다.</p>
+	                <button type="button" class="btn btn-primary">자세히 알아보기</button>
+	            </div>
+	        </div>
+	        <div class="col-sm-4">
+	            <div class="thumnail">
+	                <img src="<%=request.getContextPath() %>/images/index/pic03.jpg" alt="test">
+	                <p><strong>자전거</strong></p>
+	                <p>테스트입니다.</p>
+	                <button type="button" class="btn btn-primary">자세히 알아보기</button>
+	            </div>
+	        </div>
+	    </div>
     </div>
 </div>
 
@@ -119,19 +121,19 @@ $(function() {
     <br>
     <div class="row">
         <div class="col-sm-4">
-            <a href="#"><i class="fas fa-bicycle"></i></span></a>
-            <h4>POWER</h4>
-            <p>자전거를 타면 정력이..!!</p>
+            <a href="#"><i class="fas fa-bicycle"></i></a>
+            <h4>BIKE</h4>
+            <p>다양한 종류의 자전거를 빌릴 수 있습니다.</p>
         </div>
         <div class="col-sm-4">
-                <a href="#"><i class="fas fa-leaf"></i></span></a>
-            <h4>Love</h4>
-            <p>자전거를 타면 사랑이..!!</p>
+                <a href="#"><i class="fas fa-leaf"></i></a>
+            <h4>GREEN</h4>
+            <p>친환경적인 이동 수단입니다.</p>
         </div>
         <div class="col-sm-4">
-                <a href="#"><i class="fas fa-wrench"></i></span></a>
-            <h4>JOB</h4>
-            <p>자전거를 타면 취업이. 안돼 공부해!!!!!</p>
+                <a href="#"><i class="fas fa-wrench"></i></a>
+            <h4>REPAIR</h4>
+            <p>고장 시 수리 지원이 가능합니다.</p>
         </div>
     </div>
     <div class="row">

@@ -12,11 +12,6 @@
 	padding: 60px 50px;
 }
 
-/* 백그라운드 그레이 컬러 */
-.bg-grey {
-    background-color: rgb(231, 235, 238);
-}
-
 /* Carousel */
 .carousel-inner img {
 	max-height: 630px;
@@ -46,12 +41,13 @@
 
 /* 포트폴리오 */
 #port {
-	max-width: 75%;
+	max-width: 100%;
 	margin-top: -30px;
-	
+	background-color: rgb(231, 235, 238);
 }
 
 .thumbnail {
+	margin-top: 1em;
 	padding: 0 0 15px 0;
     border: none;
 	border-radius: 0;
@@ -65,12 +61,12 @@
 	margin-bottom: 10px;
 }
 
+/* point */
 #point {
 	margin-top: 2em;
 }
 
 #point h1 {
-	color: rgb(226, 4, 4);
 	font-weight: 700;
 }
 
@@ -79,6 +75,7 @@
 	font-weight: 700;
 	padding: 1px;
 }
+
 /* 서비스 */
 i {
 	color: rgb(17, 70, 150);
@@ -86,7 +83,6 @@ i {
 }
 
 #service h1 {
-	color: rgb(226, 4, 4);
 	font-weight: 700;
 }
 
