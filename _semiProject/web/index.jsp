@@ -138,7 +138,7 @@ $(function() {
         <div class="col-sm-4">
                 <a href="#"><i class="far fa-chart-bar"></i></a>
             <h4>GREEN</h4>
-            <p>자전거를 타면 자연이..!!</p>
+            <p>자전거를 타면 자연이..! !</p>
         </div>
         <div class="col-sm-4">
                 <a href="#"><i class="fas fa-home"></i></a>
