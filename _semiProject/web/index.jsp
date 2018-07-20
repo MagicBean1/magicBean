@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+
+<!-- Header.jsp -->
+<%@ include file= 'views/common/header.jsp' %> <!-- 파일 include. header.jsp 파일을 읽어들인다 -->
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css?var=1"> <!-- index.css -->
+
+
 <%@ include file= 'views/common/header.jsp' %>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css?var=2"> <!-- index.css -->
+
 <style>
 </style>
 
@@ -13,7 +20,7 @@ $(function() {
 	    interval : 3000,
 	});
 })
-
+123
 </script>
 <!-- Carousel -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

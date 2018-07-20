@@ -33,6 +33,8 @@
 <link href="<%= request.getContextPath() %>/css/bootstrap/bootstrap-theme.css" rel="stylesheet"> <!-- bootstrap-theme.css -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/common.css?var=1"> <!-- common.css -->
 
+
+
 <title>BIKEE</title>   
 </head>
 
@@ -79,8 +81,13 @@ function validate() {
 	        <div class="collapse navbar-collapse" id="myNavbar">
 	            <ul class="nav navbar-nav">
 	                <li><a href="#intro">소개</a></li>
+
+	                <li><a href="<%=request.getContextPath()%>/notice/noticeList">공지사항</a></li>
+	                <li><a href="#purchase">이용권 구매</a></li>
+
 	                <li><a href="#notice">공지사항</a></li>
 	                <li><a href="<%= request.getContextPath() %>/views/navbar/purchase.jsp">이용권 구매</a></li>
+
 	                <li><a href="#shop">대여소 조회</a></li>
 	                <li><a href="#community">커뮤니티</a></li>
 	                <li><a href="#service">고객센터</a></li>
