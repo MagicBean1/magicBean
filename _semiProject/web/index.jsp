@@ -149,6 +149,7 @@ $(function() {
                 <a href="#"><i class="fas fa-road"></i></a>
             <h4>WRENCH</h4>
             <p>자전거를 타면 연장이..!!</p>
+       	브런치에서 수정
         </div>
     </div>
 </div>
