@@ -12,21 +12,6 @@
 	padding: 60px 50px;
 }
 
-/* 백그라운드 그레이 컬러 */
-.bg-grey {
-    background-color: rgb(242, 244, 247);
-}
-
-/* 화면 상단 Jumbotron 
-.jumbotron {
-	color: #fff;
-	max-height: 280px;
-	padding: 100px 25px;
-    background-image: url(images/index/backCover.jpg);
-    background-size: cover;
-    margin-bottom: 5;
-} */
-
 /* Carousel */
 .carousel-inner img {
 	max-height: 630px;
@@ -39,8 +24,13 @@
 	text-shadow: black 0.2em 0.2em 0.2em;
 }
 
-.carousel-caption h3 {
+.carousel-caption h2 {
 	color: #fff !important;
+	font-weight: 700;
+}
+
+.carousel-caption p {
+	font-size: 1.2em;
 }
 
 @media (max-width: 600px) { /* 600px 이하에서는 carousel-캡션이 안나온다. */
@@ -51,11 +41,13 @@
 
 /* 포트폴리오 */
 #port {
-	max-width: 75%;
-	
+	max-width: 100%;
+	margin-top: -30px;
+	background-color: rgb(231, 235, 238);
 }
 
 .thumbnail {
+	margin-top: 1em;
 	padding: 0 0 15px 0;
     border: none;
 	border-radius: 0;
@@ -69,10 +61,29 @@
 	margin-bottom: 10px;
 }
 
+/* point */
+#point {
+	margin-top: 2em;
+}
+
+#point h1 {
+	font-weight: 700;
+}
+
+#point p {
+	font-size: 1.3em;
+	font-weight: 700;
+	padding: 1px;
+}
+
 /* 서비스 */
-.logo {
+i {
 	color: rgb(17, 70, 150);
 	font-size: 50px;
+}
+
+#service h1 {
+	font-weight: 700;
 }
 
 #service .col-sm-4 {
