@@ -108,7 +108,8 @@ footer i {
 	padding: 1em;
 }
 
-.footer1 {
+#footer1 {
+	font-style: italic;
 	background-color: rgb(43, 43, 43);
 	font-size: 1.5em;
 	color: rgb(73, 74, 77);
