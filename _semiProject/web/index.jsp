@@ -34,7 +34,7 @@ $(function() {
     	<div class="item">
 	        <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/2.jpg"></a>
 	        <div class="carousel-caption">
-	            <h2>언제나</h2>
+	            <h2>언제나뭐가</h2>
 	            <p>BIKEE를 이용하길 원하는 분은 언제나 이용할 수 있습니다.</p>
 	        </div>
     	</div>
