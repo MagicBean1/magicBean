@@ -1,88 +1,107 @@
 package member.model.vo;
 
 public class Member {
-	private String memId;
-	private String memPw;
-	private String memName;
-	private int memBirthdate;
-	private String memPhone;
-	private String memEmail;
-	private String memAddr;
+
+	private String mem_id;
+	private String mem_pw ;
+	private String mem_name;
+	private int mem_birthdate;
+	private String mem_phone;
+	private String mem_email;
+	private String  mem_addr;
 	
-	public Member() {
-		
+	public Member() {}
+
+	
+	public String getMem_id() {
+		return mem_id;
 	}
 
-	public Member(String memId, String memPw, String memName, int memBirthdate, String memPhone, String memEmail,
-			String memAddr) {
-		this.memId = memId;
-		this.memPw = memPw;
-		this.memName = memName;
-		this.memBirthdate = memBirthdate;
-		this.memPhone = memPhone;
-		this.memEmail = memEmail;
-		this.memAddr = memAddr;
+
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
 	}
 
-	public String getMemId() {
-		return memId;
+
+	public String getMem_pw() {
+		return mem_pw;
 	}
 
-	public void setMemId(String memId) {
-		this.memId = memId;
+
+	public void setMem_pw(String mem_pw) {
+		this.mem_pw = mem_pw;
 	}
 
-	public String getMemPw() {
-		return memPw;
+
+	public String getMem_name() {
+		return mem_name;
 	}
 
-	public void setMemPw(String memPw) {
-		this.memPw = memPw;
+
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
 	}
 
-	public String getMemName() {
-		return memName;
+
+	public int getMem_birthdate() {
+		return mem_birthdate;
 	}
 
-	public void setMemName(String memName) {
-		this.memName = memName;
+
+	public void setMem_birthdate(int mem_birthdate) {
+		this.mem_birthdate = mem_birthdate;
 	}
 
-	public int getMemBirthdate() {
-		return memBirthdate;
+
+	public String getMem_phone() {
+		return mem_phone;
 	}
 
-	public void setMemBirthdate(int memBirthdate) {
-		this.memBirthdate = memBirthdate;
+
+	public void setMem_phone(String mem_phone) {
+		this.mem_phone = mem_phone;
 	}
 
-	public String getMemPhone() {
-		return memPhone;
+
+	public String getMem_email() {
+		return mem_email;
 	}
 
-	public void setMemPhone(String memPhone) {
-		this.memPhone = memPhone;
+
+	public void setMem_email(String mem_email) {
+		this.mem_email = mem_email;
 	}
 
-	public String getMemEmail() {
-		return memEmail;
+
+	public String getMem_addr() {
+		return mem_addr;
 	}
 
-	public void setMemEmail(String memEmail) {
-		this.memEmail = memEmail;
+
+	public void setMem_addr(String mem_addr) {
+		this.mem_addr = mem_addr;
 	}
 
-	public String getMemAddr() {
-		return memAddr;
+
+	public Member(String mem_id, String mem_pw, String mem_name, int mem_birthdate, String mem_phone, String mem_email,
+			String mem_addr) {
+		super();
+		this.mem_id = mem_id;
+		this.mem_pw = mem_pw;
+		this.mem_name = mem_name;
+		this.mem_birthdate = mem_birthdate;
+		this.mem_phone = mem_phone;
+		this.mem_email = mem_email;
+		this.mem_addr = mem_addr;
 	}
 
-	public void setMemAddr(String memAddr) {
-		this.memAddr = memAddr;
-	}
 
 	@Override
 	public String toString() {
-		return "Member [memId=" + memId + ", memPw=" + memPw + ", memName=" + memName + ", memBirthdate=" + memBirthdate
-				+ ", memPhone=" + memPhone + ", memEmail=" + memEmail + ", memAddr=" + memAddr + "]";
+		return "Member [mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", mem_name=" + mem_name + ", mem_birthdate="
+				+ mem_birthdate + ", mem_phone=" + mem_phone + ", mem_email=" + mem_email + ", mem_addr=" + mem_addr
+				+ "]";
 	}
+
+	
 }

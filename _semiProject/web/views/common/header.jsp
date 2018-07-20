@@ -61,13 +61,13 @@ function validate() {
 	<!-- mainLogo -->
 	<div class="row mainLogo">
         <div class="col-sm-4">
-            <img src="<%=request.getContextPath() %>/images/logo.jpg">
+            <a href="<%=request.getContextPath() %>/"><img src="<%=request.getContextPath() %>/images/logo.jpg"></a>
         </div>
         <div class="col-sm-8">
         </div>
     </div>
     
-<!-- navbar -->
+	<!-- navbar -->
 	<nav class="navbar navbar-invarse">
 	    <div class="container">
 	        <div class="navbar-header">
@@ -76,13 +76,18 @@ function validate() {
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="<%= request.getContextPath() %>">Home</a>
+	            <a class="navbar-brand" href="<%= request.getContextPath() %>">BIKEE</a>
 	        </div>
 	        <div class="collapse navbar-collapse" id="myNavbar">
 	            <ul class="nav navbar-nav">
 	                <li><a href="#intro">소개</a></li>
+
 	                <li><a href="<%=request.getContextPath()%>/notice/noticeList">공지사항</a></li>
 	                <li><a href="#purchase">이용권 구매</a></li>
+
+	                <li><a href="#notice">공지사항</a></li>
+	                <li><a href="<%= request.getContextPath() %>/views/navbar/purchase.jsp">이용권 구매</a></li>
+
 	                <li><a href="#shop">대여소 조회</a></li>
 	                <li><a href="#community">커뮤니티</a></li>
 	                <li><a href="#service">고객센터</a></li>
@@ -93,7 +98,7 @@ function validate() {
             		    <li><a href="<%= request.getContextPath() %>/member/memberLogout"><span class="glyphicon glyphicon-user"> Logout</span></a></li>
 	            	<% } else { %>
 					<li><a href="#" data-toggle="modal" data-target="#loginModal" data-backdroup="static"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="<%= request.getContextPath() %>/views/member/memberEnroll.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="<%= request.getContextPath() %>/views/member/joinTerms.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <% } %>
 	            </ul>
 	        </div>
