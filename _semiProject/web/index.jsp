@@ -31,6 +31,7 @@ $(function() {
 	            <p>BIKEE는 남녀노소 누구나 이용 가능합니다.</p>
 	        </div>
 	    </div>
+
     	<div class="item">
 	        <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/2.jpg"></a>
 	        <div class="carousel-caption">

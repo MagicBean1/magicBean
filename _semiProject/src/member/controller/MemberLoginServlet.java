@@ -32,17 +32,17 @@ public class MemberLoginServlet extends HttpServlet {
     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
     */
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String memId = (String) request.getParameter("memId");
-      String memPw = (String) request.getParameter("memPw");
+      String mem_id = (String) request.getParameter("mem_id");
+      String mem_pw = (String) request.getParameter("mem_pw");
       String referer = request.getHeader("referer");
       
-      Member m = new MemberService().selectOne(memId);
+      Member m = new MemberService().selectOne(mem_id);
       
       String msg = "";
       String view = "/views/common/msg.jsp";
       
       if(m != null) { // DA에 계정이 존재하면
-         if(m.getMemPw().equals(memPw)) { // 로그인 창에서 입력받은 비밀번호와 DB에 저장된 비밀번호가 같다면 
+         if(m.getMem_pw().equals(mem_pw)) { // 로그인 창에서 입력받은 비밀번호와 DB에 저장된 비밀번호가 같다면 
             msg = "로그인 되었습니다.";
             HttpSession session = request.getSession();
             session.setAttribute("memberLoggedIn", m); // 로그인 세션 생성
@@ -52,13 +52,13 @@ public class MemberLoginServlet extends HttpServlet {
             
             // checkBox에 체크되어있으면 아이디 저장
             if(saveId != null) { // checkbox에 체크여부 확인
-               Cookie c = new Cookie("saveId", memId);
+               Cookie c = new Cookie("saveId", mem_id);
                c.setMaxAge(365*24*60*60); // session을 언제까지 유지할지 지정.
                c.setPath("/"); // Cookie의 저장 경로
                response.addCookie(c);
             } else {
                // Cookie값 삭제!
-               Cookie c = new Cookie("saveId", memId);
+               Cookie c = new Cookie("saveId", mem_id);
                c.setMaxAge(0); // 저장하는 기간 0 => 삭제
                c.setPath("/");
                response.addCookie(c);
