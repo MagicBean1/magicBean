@@ -153,7 +153,7 @@ $(function() {
         <div class="col-sm-4">
                 <a href="#"><i class="fas fa-road"></i></a>
             <h4>WRENCH</h4>
-            <p>자전거를 타면 연장이..!!</p>
+            <p>자전거를 타면 연장이..!!알파알파 응답하라 브라보</p>
         </div>
     </div>
 </div>
