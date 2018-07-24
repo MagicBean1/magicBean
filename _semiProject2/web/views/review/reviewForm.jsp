@@ -27,19 +27,19 @@
     	}
     	
     	function fn_cancel(){
-    		location.href="<%=request.getContextPath()%>/community/communityList";
+    		location.href="<%=request.getContextPath()%>/reviewList";
     	}
     </script>
 <section>
 
 <div class="container-fluid">    
-  <form class="form-horizontal" action="<%=request.getContextPath()%>/community/communityFormEnd" method="post" enctype="multipart/form-data">
+  <form class="form-horizontal" action="<%=request.getContextPath()%>/reviewFormEnd" method="post" enctype="multipart/form-data">
   	<div class="row">
 	    <div class="col-lg-2 sidenav">
 	    </div>
     <div class="row" >
 	    <div class="col-lg-8 main_title text-center">
-	    	COMMUNICATION
+	    	CONSUMER REVIEWS
 	    </div>
     <div class="col-lg-8 content"> 
    		<div class="row">
@@ -94,7 +94,7 @@
    			<div class="col-lg-4"></div>
    			<div class="col-lg-4">
    					<div class="col-lg-3">
-   						<button type="submit" class="btn btn-primary" value="등록하기" onclick="return fn_formDate();" style="background-color:#1E68CB; height:50px;width:200px " >save</button>
+   						<button type="submit" class="btn btn-primary" value="등록하기" onclick="return validate();" style="background-color:#1E68CB; height:50px;width:200px " >save</button>
    					</div>
    					<div class="col-lg-3"></div>
    					<div class="col-lg-3">

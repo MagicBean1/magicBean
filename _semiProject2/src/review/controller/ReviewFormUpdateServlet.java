@@ -1,4 +1,4 @@
-package community.controller;
+package review.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,20 +13,20 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import community.model.service.CommunityService;
-import community.model.vo.Community;
+import review.model.service.ReviewService;
+import review.model.vo.Review;
 
 /**
- * Servlet implementation class CommunityFormUpdateServlet
+ * Servlet implementation class ReviewFormUpdateServlet
  */
-@WebServlet("/community/communityUpdate")
-public class CommunityFormUpdateServlet extends HttpServlet {
+@WebServlet("/reviewUpdate")
+public class ReviewFormUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommunityFormUpdateServlet() {
+    public ReviewFormUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -55,14 +55,14 @@ public class CommunityFormUpdateServlet extends HttpServlet {
 		String origin = mpreq.getOriginalFileName("file");
 		String rename = mpreq.getFilesystemName("file");
 		  
-		Community c = new Community();
-		c.setCommunityNo(no);
-		c.setCommunityTitle(title);
-		c.setCommunityContent(content);
-		c.setOriginalFileName(origin);
-		c.setRenameFileName(rename);  
+		Review r = new Review();
+		r.setReviewNo(no);
+		r.setReviewTitle(title);
+		r.setReviewContent(content);
+		r.setOriginalFileName(origin);
+		r.setRenameFileName(rename);  
 		
-		int result = new CommunityService().updateCommunity(c);
+		int result = new ReviewService().updateReview(r);
 		String msg="";
 		String loc="/reviewList";
 		if(result>0) {
