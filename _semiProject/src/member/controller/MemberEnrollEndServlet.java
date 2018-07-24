@@ -62,7 +62,7 @@ public class MemberEnrollEndServlet extends HttpServlet {
 		if(result>0)
 		{
 			msg="회원가입 성공!";
-			
+			loc="/_semiProject/index.jsp";
 			
 		}
 		else
@@ -73,6 +73,7 @@ public class MemberEnrollEndServlet extends HttpServlet {
 		
 		request.setAttribute("msg",msg);
 		request.setAttribute("loc", loc);
+		System.out.println(loc);
 		request.getRequestDispatcher(view).forward(request, response);
 		
 	}

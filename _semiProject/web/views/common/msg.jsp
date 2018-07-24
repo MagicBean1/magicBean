@@ -8,7 +8,8 @@
 </head>
 <%
    String msg = (String)request.getAttribute("msg");
-   String script = (String)request.getAttribute("script");
+   String loc = (String)request.getAttribute("loc");
+   String script = (String)request.getAttribute("script");  /* 보류 */
    String referer = (String)request.getAttribute("referer");
    
 %>
