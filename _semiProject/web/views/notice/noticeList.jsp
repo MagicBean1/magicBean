@@ -78,7 +78,7 @@
 
 <section id="board-container" class="container" style="width: 1300px; margin: 70px 50px 50px 50px;">
 <h2 id="h2Title">공지사항</h2>
-		<%if(session.getAttribute("memberLoggedIn") !=null && memberLoggedIn.getMemId().equals("admin")) {%>
+		<%if(session.getAttribute("memberLoggedIn") !=null && memberLoggedIn.getMem_id().equals("admin")) {%>
 			
 		 		<input type="button" onclick="fn_goNotice()" id="btn-add" value="글쓰기" />
 		 	   

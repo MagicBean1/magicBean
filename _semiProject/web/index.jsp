@@ -6,10 +6,6 @@
 <%@ include file= 'views/common/header.jsp' %> <!-- 파일 include. header.jsp 파일을 읽어들인다 -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css?var=1"> <!-- index.css -->
 
-
-<%@ include file= 'views/common/header.jsp' %>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/css/index.css?var=2"> <!-- index.css -->
-
 <style>
 </style>
 
