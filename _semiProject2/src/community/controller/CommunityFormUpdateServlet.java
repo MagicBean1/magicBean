@@ -38,11 +38,11 @@ public class CommunityFormUpdateServlet extends HttpServlet {
 		if(!ServletFileUpload.isMultipartContent(request)) {
 			request.setAttribute("msg", "게시판 작성 오류![form:enctype관리자에게 문의하세요.]");
 			request.setAttribute("loc", "/"); // "/"메인페이지로 가라는 소리
-			request.getRequestDispatcher("/views/common/reviewMsg.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/communityMsg.jsp").forward(request, response);
 			return;
 		}
 		String root = getServletContext().getRealPath("/");
-		String saveDir=root+"upload"+File.separator+"review";
+		String saveDir=root+"upload"+File.separator+"community";
 		
 		int maxSize=1024*1024*10;
 		
@@ -64,7 +64,7 @@ public class CommunityFormUpdateServlet extends HttpServlet {
 		
 		int result = new CommunityService().updateCommunity(c);
 		String msg="";
-		String loc="/reviewList";
+		String loc="/community/communityList";
 		if(result>0) {
 			msg="수정 되었습니다.";
 		}else {
@@ -72,7 +72,7 @@ public class CommunityFormUpdateServlet extends HttpServlet {
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);
-		request.getRequestDispatcher("/views/common/reviewMsg.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/common/communityMsg.jsp").forward(request, response);
 	}
 
 	/**
