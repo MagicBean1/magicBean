@@ -32,8 +32,8 @@ public class MemberLoginServlet extends HttpServlet {
     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
     */
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String mem_id = (String) request.getParameter("mem_id");
-      String mem_pw = (String) request.getParameter("mem_pw");
+      String mem_id = (String) request.getParameter("memId");
+      String mem_pw = (String) request.getParameter("memPw");
       String referer = request.getHeader("referer");
       
       Member m = new MemberService().selectOne(mem_id);

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Properties;
 
 import notice.model.vo.Notice;
+import notice.model.vo.NoticeComment;
 
 
 
@@ -35,7 +36,7 @@ public class NoticeDAO {
 	
 	
 	public List<Notice> selectNoticeList(Connection conn,int cPage,int numPerPage ){
-		System.out.println("Notice - list - DAO 시작");
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = prop.getProperty("selectNoticeList");
@@ -77,7 +78,7 @@ public class NoticeDAO {
 		
 	}
 	public int selectNoticeCount(Connection conn) {
-		System.out.println("Notice - count - DAO 시작" );
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = prop.getProperty("selectNoticeCount");
@@ -150,18 +151,19 @@ public class NoticeDAO {
 				n.setNoticeNo(rs.getInt("notice_no"));
 				n.setNoticeWriter(rs.getString("notice_writer"));
 				n.setNoticeTitle(rs.getString("notice_title"));
-				n.setNoticeContent(rs.getString("notice_content"));				
+				n.setNoticeContent(rs.getString("NOTICE_CONTENT"));				
 				n.setNoticeDate(rs.getDate("notice_date"));
 				n.setNoticeReadcount(rs.getInt("notice_readcount"));
 				
 			}
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-		System.out.println(n);
+		
 		return n;
 		
 		
@@ -177,7 +179,7 @@ public class NoticeDAO {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, NoticeNo);
 			result = pstmt.executeUpdate();
-			
+			System.out.println(result);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -188,6 +190,99 @@ public class NoticeDAO {
 		
 		
 	}
-
-
+	public int insertNoticeComment(Connection conn, NoticeComment bc) {
+		PreparedStatement pstmt=null;
+		int result =0;
+		String sql = prop.getProperty("insertNoticeComment");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bc.getNoticeCommentLevel());
+			pstmt.setString(2, bc.getNoticeCommentWrite());
+			pstmt.setString(3, bc.getNoticeCommentContent());
+			pstmt.setInt(4, bc.getNoticeRef());    			
+			pstmt.setString(5, bc.getNoticeCommentRef()==0?null:String.valueOf(bc.getNoticeCommentRef()));/*답글에 대한 PK*/
+			result=pstmt.executeUpdate();
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+				close(pstmt);
+		return result;
+	}
+	
+	public List<NoticeComment> selectNoticeCommentList(Connection conn, int no){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql =prop.getProperty("selectNoticeCommentList");
+		ArrayList<NoticeComment> list = new ArrayList();
+		NoticeComment bc= null;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs=pstmt.executeQuery();
+			while (rs.next()) {
+				bc = new NoticeComment();
+				bc.setNoticeCommentContent(rs.getString("notice_comment_content"));
+				bc.setNoticeCommentNo(rs.getInt("notice_comment_no"));
+				bc.setNoticeCommentLevel(rs.getInt("notice_comment_level"));
+				bc.setNoticeCommentWrite(rs.getString("notice_comment_writer"));
+				bc.setNoticeRef(rs.getInt("notice_ref"));
+				bc.setNoticeCommentRef(rs.getInt("notice_comment_ref"));
+				bc.setNoticeCommentDate(rs.getDate("notice_comment_date"));
+				list.add(bc);
+				
+				
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		close(rs);
+		close(pstmt);
+		
+		return list;
+	}
+	
+	public int updateNotice(Connection conn,String upContent,int updateNo) {
+		PreparedStatement pstmt=null;
+		int result =0;
+		String sql = prop.getProperty("updateNotice");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, upContent);
+			pstmt.setInt(2, updateNo);
+			result = pstmt.executeUpdate();
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+				close(pstmt);
+		return result;
+		
+		
+		
+	}
+	public int deleteNotice(Connection conn ,int updateNo) {
+		
+		PreparedStatement pstmt=null;
+		int result =0;
+		String sql = prop.getProperty("deleteNotice");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, updateNo);
+			result = pstmt.executeUpdate();
+			
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+				close(pstmt);
+		return result;
+		
+		
+		
+		
+	}
 }

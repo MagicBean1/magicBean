@@ -1,6 +1,7 @@
 package notice.model.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,11 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
 import notice.model.vo.Notice;
+import notice.model.vo.NoticeComment;
 
 /**
- * Servlet implementation class BoardViewServlet
+ * Servlet implementation class noticeViewServlet
  */
-@WebServlet("/board/boardView")
+@WebServlet("/notice/noticeView")
 public class NoticeViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,12 +33,12 @@ public class NoticeViewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int boardNo= Integer.parseInt(request.getParameter("no"));
-		System.out.println(boardNo);
+		int noticeNo= Integer.parseInt(request.getParameter("no"));
+		System.out.println(noticeNo);
 //		client가 보낸 쿠키 확인
 		
 		Cookie[] cookie = request.getCookies();
-		String boardCookieVal = "";
+		String noticeCookieVal = "";
 		boolean hasRead = false;
 		
 		if(cookie !=null) {
@@ -44,10 +46,10 @@ public class NoticeViewServlet extends HttpServlet {
 				for(Cookie c:cookie) {
 					String name = c.getName();   /*key값*/
 					String value = c.getValue(); /*value값*/
-					if("boardCookie".equals(name)) { /*boardCookie값이 있다는소리는 한 번이라도 저장했다는소리 */
-						boardCookieVal=value;
+					if("noticeCookie".equals(name)) { /*noticeCookie값이 있다는소리는 한 번이라도 저장했다는소리 */
+						noticeCookieVal=value;
 						System.out.println("값"+c.getValue());
-						if(value.contains("|"+boardNo+"|")) {
+						if(value.contains("|"+noticeNo+"|")) {
 								/*읽었다는소리*/
 							hasRead = true;
 							break outer;
@@ -58,22 +60,26 @@ public class NoticeViewServlet extends HttpServlet {
 		}
 		if(!hasRead) { /*읽지 않았다면 쿠키를 만들어서 저장*/
 			
-			Cookie boardCookie = new Cookie("boardCookie", boardCookieVal+"|"+boardNo+"|"); /*10번읽으면 |10| 이렇게 저장 boardCookie안에*/
-			boardCookie.setMaxAge(-1);/*브라우저가 끊어져야 삭제 세션이 끊어져야*/
-			response.addCookie(boardCookie);
+			Cookie noticeCookie = new Cookie("noticeCookie", noticeCookieVal+"|"+noticeNo+"|"); /*10번읽으면 |10| 이렇게 저장 noticeCookie안에*/
+			noticeCookie.setMaxAge(-1);/*브라우저가 끊어져야 삭제 세션이 끊어져야*/
+			response.addCookie(noticeCookie);
 		}
 		
-		System.out.println(boardNo);
-		Notice notice= new NoticeService().selectOne(boardNo,hasRead);
-//		Board board= new BoardService().selectOne(boardNo);
-//		new BoardService().insertBoardCount(boardNo);
+		System.out.println(noticeNo);
+		Notice notice= new NoticeService().selectOne(noticeNo,hasRead);
+//		Notice notice= new NoticeService().selectOne(noticeNo);
+//		new NoticeService().insertnoticeCount(noticeNo);
 		String view="";
 		if(notice!=null) {
-			request.setAttribute("board", notice);
-			view="/views/board/boardView.jsp";
+			request.setAttribute("notice", notice);
+			List<NoticeComment> list = new NoticeService().selectNoticeCommentList(noticeNo);
+			request.setAttribute("list", list);
+			
+			
+			view="/views/notice/noticeView.jsp";
 		}else {
 			request.setAttribute("msg", "오류!!");
-			request.setAttribute("loc", "/board/boardView");
+			request.setAttribute("loc", "/notice/noticeView");
 			view = "/views/common/msg.jsp";
 			
 		}

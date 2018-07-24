@@ -10,14 +10,15 @@ import java.util.List;
 
 import notice.model.dao.NoticeDAO;
 import notice.model.vo.Notice;
+import notice.model.vo.NoticeComment;
 public class NoticeService {
 	public List<Notice> selectNoticeList(int cPage,int numPerPage){
-		System.out.println("Notice - list - Service 시작");
+		
 		
 		Connection conn = getConnection();
 		List<Notice> list = new NoticeDAO().selectNoticeList(conn, cPage, numPerPage);
 		close(conn);
-		System.out.println("가져온 list : " + list);
+		
 		
 		return list;
 		
@@ -25,7 +26,7 @@ public class NoticeService {
 	
 	
 	public int selectNoticeCount(){
-		System.out.println("Notice - count - Service 시작");
+		
 		Connection conn = getConnection();
 	
 		int result = new NoticeDAO().selectNoticeCount(conn);
@@ -67,6 +68,56 @@ public class NoticeService {
 		return n;
 	}
 	
-	
+	public int insertNoticeComment(NoticeComment bc) {
+		Connection conn = getConnection();
+		int result = new NoticeDAO().insertNoticeComment(conn,bc);
+		if(result>0){
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+	public List<NoticeComment> selectNoticeCommentList(int no) {
+		Connection conn =getConnection();
+		List<NoticeComment> list = new NoticeDAO().selectNoticeCommentList(conn,no);
+		
+		close(conn);
 
+		return list;
+	}
+	
+	public int updateNotice(String upContent,int updateNo ) {
+		Connection conn =getConnection();
+		
+		int result = new NoticeDAO().updateNotice(conn,upContent,updateNo);
+		if(result>0){
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		
+		
+		return result;
+	}
+	
+	public int deleteNotice(int updateNo) {
+		Connection conn= getConnection();
+		int result = new NoticeDAO().deleteNotice(conn,updateNo);
+		if(result>0){
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+		
+	}
+	
+	
+	
 }

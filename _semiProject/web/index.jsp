@@ -16,7 +16,7 @@ $(function() {
 	    interval : 3000,
 	});
 })
-123
+
 </script>
 <!-- Carousel -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

@@ -31,7 +31,7 @@ public class NoticeListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	System.out.println("Notice - list - Controller 시작");
+	
 	
 	int numPerPage =10;
 	int cPage;
@@ -85,24 +85,29 @@ public class NoticeListServlet extends HttpServlet {
 				7. pageEnd : pageBar에 표시되는 끝숫자*/
 //		pageNo이 처음엔 1
 		if(pageNo ==1) {
-			pageBar += "<span>[이전]</span>";
+			pageBar += "<ul class='"+"pagination"+"'><li><a href='#' ><span>&laquo;</span></a></li></ul>";
+					
+					
 		}else {													/*현재페이지 연결*/
-			pageBar += "<a href ='"+request.getContextPath()+"/notice/noticeList?cPage="+(pageNo-1)+"'>[이전]</a>";
+			pageBar += "<ul class='"+"pagination"+"'><li><a href='"+request.getContextPath()+"/notice/noticeList?cPage="+(pageNo-1)+"' ><span>&laquo;"
+					+ "</span></a></li></ul>";
 		}
 		while(!(pageNo > pageEnd|| pageNo>totalPage)) {
 			if(cPage == pageNo) { 
-				pageBar += "<span>"+pageNo+"</span>";  /*현재페이지와 페이지번호가 같으면 그번호를 span으로 해버려서 클릭할 수 없게함*/
+				pageBar += "<ul class='"+"pagination"+"'><li><a href='#' ><span>"+pageNo+"</span></a></li></ul>";  /*현재페이지와 페이지번호가 같으면 그번호를 span으로 해버려서 클릭할 수 없게함*/
 			}else {  				 /*나머지 페이지는 누를수 있게해놈*/                                
-				pageBar += "<a href='"+request.getContextPath()+"/notice/noticeList?cPage="+pageNo+"'>"+pageNo+"</a>";
-				
+				pageBar += "<ul class='"+"pagination"+"'><li><a href='"+request.getContextPath()+"/notice/noticeList?cPage="+pageNo+"' >"+pageNo+"</a></li></ul>";
+				//             
 			}
 			pageNo++;
 		}
 		
+		
 		if(pageNo > totalPage) {
-			pageBar+="<span>[다음]</span>";
+			pageBar+="<ul class='"+"pagination"+"'><li><a href='#' ><span>&raquo;</span></a></li></ul>";
 		}else {
-			pageBar += "<a href ='"+request.getContextPath()+"/notice/noticeList?cPage=" + pageNo+ "' >[다음]</a>";
+			pageBar += "<ul class='"+"pagination"+"'><li><a href='"+request.getContextPath()+"/notice/noticeList?cPage="+pageNo+"' ><span>&raquo;"
+					+ "</span></a></li></ul>";
 		}
 		request.setAttribute("list", list);
 		
