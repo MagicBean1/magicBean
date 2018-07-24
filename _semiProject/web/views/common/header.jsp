@@ -92,7 +92,7 @@ function validate() {
 	                <li><a href="<%= request.getContextPath() %>/views/navbar/purchase.jsp">이용권 구매</a></li>
 
 	                <li><a href="#shop">대여소 조회</a></li>
-	                <li><a href="#community">커뮤니티</a></li>
+	                <li><a href="<%=request.getContextPath()%>/community/communityList">커뮤니티</a></li>
 	                <li><a href="#service">고객센터</a></li>
 	            </ul>
 	            <ul class="nav navbar-nav navbar-right">
