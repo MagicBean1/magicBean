@@ -80,7 +80,7 @@ function validate() {
 	        </div>
 	        <div class="collapse navbar-collapse" id="myNavbar">
 	            <ul class="nav navbar-nav">
-	                <li><a href="#intro">소개</a></li>
+	                <li><a href="<%= request.getContextPath() %>/introduce.jsp">소개</a></li>
 
 	                <li>
 	                <% if(session.getAttribute("memberLoggedIn") !=null){%>
