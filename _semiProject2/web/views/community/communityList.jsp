@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import='java.util.*,community.model.vo.Community' %>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <%@ include file='/views/common/header.jsp' %>
 <%
@@ -36,10 +37,12 @@
 
 <div class="container-fluid">    
 	  <div class="row content">
-		    <div class="col-lg-2 sidenav w3-bar-block w3-sidebar">
-		    	<h3 class="w3-bar-item">Menu</h3>
-					  <a href="#" class="w3-bar-item w3-button">Link 1</a>
-					  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+		    <div class="col-lg-2 sidenav">
+		    	 <div class="w3-sidebar w3-bar-block w3-light-grey" style="width:280px;height:183px">
+			    	<h3 class="w3-bar-item w3-border-bottom" style="margin-bottom:0px;text-align: center;color:#1E68CB;font-weight:bold">Communication</h3>
+						    <a href="#" class="w3-bar-item w3-button w3-border-bottom" style="height:60px;background:white; text-align: center;">자유게시판</a>
+  							<a href="#" class="w3-bar-item w3-button w3-border-bottom" style="height:60px;background:white;text-align: center;">이용후기</a>
+			    </div>
 		    </div>
 		    <div class="row" >
 				    <div class="col-lg-8 main_title text-center">
