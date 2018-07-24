@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import='java.util.*,community.model.vo.Community' %>
+    pageEncoding="UTF-8" import='java.util.*,review.model.vo.Review' %>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <%@ include file='/views/common/header.jsp' %>
 <%
-	List<Community> list = (List<Community>)request.getAttribute("list");
+	List<Review> list = (List<Review>)request.getAttribute("list");
 	String pageBar =(String)request.getAttribute("pageBar");
 %>
 <style>
@@ -19,7 +19,7 @@
 
    function fn_write(login)
    {	
-	   	location.href="<%=request.getContextPath()%>/community/communityForm";		
+	   	location.href="<%=request.getContextPath()%>/reviewForm";		
    }
    
 	function fn_date(){
@@ -42,11 +42,11 @@
 			    	<h3 class="w3-bar-item w3-border-bottom" style="margin-bottom:0px;text-align: center;color:#1E68CB;font-weight:bold">Communication</h3>
 						    <a href="<%=request.getContextPath()%>/community/communityList" class="w3-bar-item w3-button w3-border-bottom" style="height:60px;background:white; text-align: center;">자유게시판</a>
   							<a href="<%=request.getContextPath()%>/reviewList" class="w3-bar-item w3-button w3-border-bottom" style="height:60px;background:white;text-align: center;">이용후기</a>
-			    </div>
+			   	 </div>
 		    </div>
 		    <div class="row" >
 				    <div class="col-lg-8 main_title text-center">
-				    	COMMUNICATION
+				    	CONSUMER REVIEWS 
 				    </div>
 			    <div class="col-lg-8"> 
 				     <table class="table table-striped">
@@ -62,17 +62,17 @@
 							</tr>
 					   </thead>
 						<tbody>
-							<%for(Community c :list) {%>
+							<%for(Review r :list) {%>
 							<tr>
-								<td><%=c.getCommunityNo() %></td>
-								<td><a href='<%=request.getContextPath()%>/community/communityView?no=<%=c.getCommunityNo()%>'><%=c.getCommunityTitle() %></a></td>
-								<td><%=c.getCommunityWriter() %></td>
-								<td><%=c.getCommunityDate() %></td>
-								<td><%if(c.getOriginalFileName()!=null){%>
+								<td><%=r.getReviewNo() %></td>
+								<td><a href='<%=request.getContextPath()%>/reviewView?no=<%=r.getReviewNo()%>'><%=r.getReviewTitle() %></a></td>
+								<td><%=r.getReviewWriter()%></td>
+								<td><%=r.getReviewDate() %></td>
+								<td><%if(r.getOriginalFileName()!=null){%>
 								<img src='<%=request.getContextPath()%>/images/file1.PNG' width='16px'/>
 								<%} %>
 								</td>
-								<td><%=c.getCommunityReadCount() %></td>
+								<td><%=r.getReviewReadCount() %></td>
 							</tr>
 							<%} %>
 						</tbody>
@@ -85,7 +85,7 @@
 				       		<button type="button" class="btn btn-primary btn pull-right" onclick='fn_write()' style="background-color:#1E68CB;width:110px; height:40px; font-size:16px;margin-top:22px">WRITE</button>
 						<%} %>
 					</div>
-					<form  action="<%=request.getContextPath()%>/community/communityList" method="post">
+					<form  action="<%=request.getContextPath()%>/reviewList" method="post">
 						<div style="margin-top:50px"></div>
 						<div class="col-lg-1"></div>
 						<div class="col-lg-2" ><div style="wdith:450px"></div></div>

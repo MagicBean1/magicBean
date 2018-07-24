@@ -1,4 +1,4 @@
-package community.controller;
+package review.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,20 +13,20 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import community.model.service.CommunityService;
-import community.model.vo.Community;
+import review.model.service.ReviewService;
+import review.model.vo.Review;
 
 /**
- * Servlet implementation class CommunityFormUpdateServlet
+ * Servlet implementation class ReviewFormEndServlet
  */
-@WebServlet("/community/communityUpdate")
-public class CommunityFormUpdateServlet extends HttpServlet {
+@WebServlet("/reviewFormEnd")
+public class ReviewFormEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommunityFormUpdateServlet() {
+    public ReviewFormEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,29 +46,29 @@ public class CommunityFormUpdateServlet extends HttpServlet {
 		
 		int maxSize=1024*1024*10;
 		
-		MultipartRequest mpreq = new MultipartRequest(request, saveDir, maxSize,"utf-8",new DefaultFileRenamePolicy());  
+		MultipartRequest mpreq = new MultipartRequest(request, saveDir, maxSize,"utf-8",new DefaultFileRenamePolicy());
 		
-		request.setCharacterEncoding("utf-8");
-		int no = Integer.parseInt(mpreq.getParameter("no"));
 		String title = mpreq.getParameter("title");
-		String content = mpreq.getParameter("content");
+		String writer = mpreq.getParameter("writer");
+		request.setCharacterEncoding("utf-8");
+		String content =mpreq.getParameter("content");
 		String origin = mpreq.getOriginalFileName("file");
 		String rename = mpreq.getFilesystemName("file");
-		  
-		Community c = new Community();
-		c.setCommunityNo(no);
-		c.setCommunityTitle(title);
-		c.setCommunityContent(content);
-		c.setOriginalFileName(origin);
-		c.setRenameFileName(rename);  
 		
-		int result = new CommunityService().updateCommunity(c);
+		Review r = new Review();
+		r.setReviewWriter(writer);
+		r.setReviewTitle(title);
+		r.setReviewContent(content);
+		r.setOriginalFileName(origin);
+		r.setRenameFileName(rename);
+		
+		int result = new ReviewService().insertReview(r);
 		String msg="";
 		String loc="/reviewList";
 		if(result>0) {
-			msg="수정 되었습니다.";
+			msg="게시판 등록이 되었습니다.";
 		}else {
-			msg="수정이 되지 않았습니다.";
+			msg="게시판 등록이 되지 않았습니다.";
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);
