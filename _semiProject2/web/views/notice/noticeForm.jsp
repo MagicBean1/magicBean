@@ -30,6 +30,7 @@
 		
 		return true;
 	}
+   
    //돌아가기 버튼
    function rtList() {
 	   
@@ -46,20 +47,19 @@
 <!-- 글쓰는 폼 -->
 <div id="board-container"><br>
 <legend><strong> <h2>공지사항 작성</h2></strong></legend>
- <form class="form-inline" action="<%=request.getContextPath()%>/notice/noticeFormEnd" method="post">
+ <form class="form-inline" action="<%=request.getContextPath()%>/notice/noticeFormEnd" method="post" onsubmit="return validate()">
     <div class="form-group">
         <label for=title>제목:&nbsp;&nbsp;&nbsp;&nbsp; </label>
-        <input type="text" class="form-control"  placeholder="Title " name="title" style="border-radius: 10px;">
+        <input type="text"  class="form-control"  placeholder="Title " id ="title" name="title" style="border-radius: 10px;">
+        <label for="writer">작성자 :</label>
+      <input type="text" class="form-control"   name="writer" value="admin"  style="border-radius: 10px;" readonly>
     </div><hr>
-    <div class="form-group">
-      <label for="writer">작성자 :</label>
-      <input type="text" class="form-control"   name="writer" value="admin"  style="border-radius: 10px;" disabled>
-    </div> <hr>
+    
 
 	<td colspan="2"><textarea  cols="85"   name="content" style="height:200px;border-radius: 10px;"  ></textarea></td>
 	<hr>
-		<input type="submit" value="등록하기" onclick="return validate()" />
-		<input type="button" value="돌아가기" onclick="return rtList()"  />
+		<input type="submit" value="등록하기" onclick="return validate()" class="btn btn-default" />
+		<input type="button" value="돌아가기" onclick="return rtList()"  class="btn btn-default" />
 		<!-- <td  style="position: relative;" ></td>  -->  
 	 
 </form>

@@ -175,11 +175,11 @@ public class NoticeDAO {
 		int result = 0;
 		String sql = prop.getProperty("insertNoticeCount");
 		try {
-			
+			System.out.println(sql);
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, NoticeNo);
 			result = pstmt.executeUpdate();
-			System.out.println(result);
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

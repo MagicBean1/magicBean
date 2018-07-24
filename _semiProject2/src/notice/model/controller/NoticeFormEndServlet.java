@@ -124,7 +124,7 @@ public class NoticeFormEndServlet extends HttpServlet {
 		request.setAttribute("loc", loc);
 		request.setAttribute("referer", referer); 
 		
-		request.getRequestDispatcher("/views/common/msg.jsp").forward(request,response);
+		request.getRequestDispatcher("/views/common/communityMsg.jsp").forward(request,response);
 		
 		
 	}
