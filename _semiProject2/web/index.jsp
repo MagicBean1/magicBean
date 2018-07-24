@@ -25,7 +25,6 @@ $(function() {
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-       한번더 시도 두번째 시도 세번째시도
     <div class="carousel-inner" role="listbox">
         <div class="item active">
 	        <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/1.jpg"></a>
