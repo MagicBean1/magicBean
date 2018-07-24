@@ -38,7 +38,7 @@ public class NoticeCommentInsertServlet extends HttpServlet {
 		int  noticeCommentRef =Integer.parseInt( request.getParameter("noticeCommentRef"));
 		String noticeCommentWriter = request.getParameter("noticeCommentWriter");
 		String noticeCommentContent= request.getParameter("noticeCommentContent");
-		
+		String referer = request.getHeader("referer");
 		/*System.out.println("ref" +boardRef);
 		System.out.println("boardCommentLevel" +boardCommentLevel);
 		System.out.println("boardCommentRef" +boardCommentRef);
@@ -52,20 +52,21 @@ public class NoticeCommentInsertServlet extends HttpServlet {
 		bc.setNoticeCommentLevel(noticeCommentLevel);
 		bc.setNoticeCommentRef(noticeCommentRef);
 		
-		System.out.println("코맨트 notice : " +bc);
+		
 		int result = new NoticeService().insertNoticeComment(bc);
 		
 		
 		String msg ="";
-		String referer ="";
+		
 		String view = "/views/common/msg.jsp";
 		/*WEB-INF*/
 		if(result>0) {
 			msg= "댓글등록 성공";
+			/*referer = "/_semiProject/notice/noticeView?no="+noticeRef;*/
 		}else {
 			msg= "댓글등록 실패";
 		}										
-		referer = "/_semiProject/notice/noticeView?no="+noticeRef;/*댓글넣는페이지로*/
+		
 		
 		request.setAttribute("msg", msg);
 		request.setAttribute("referer", referer);

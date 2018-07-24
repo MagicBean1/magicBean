@@ -10,6 +10,9 @@
 
 
 <style>
+div.main_title{font:italic normal normal 50px/1.4em dinneuzeitgroteskltw01-_812426,sans-serif;background-color:#1E68CB;color:white;height:100px;
+       padding-top:10px; margin-left: 250px;}
+
 @media( max-width: 640px ) {
 	#tickets,
 	#tickets thead,
@@ -70,9 +73,9 @@
    table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center;}
   	/* 글쓰기 버튼 */
  	#button-div{display: flex;}
-   #btn-add{ width:100px;;position:absolute;right: 35%; display: inline-block; font-size: 20px;}
+   #btn-add{ width:100px;;position:absolute;right: 30%; display: inline; font-size: 15px;}
    #h2Title{left: 250px;}
-   #pp{ text-align: right;}
+   #pp{ text-align: right; width: 1000px;margin: 0px;}
 
 </style>
 
@@ -97,26 +100,25 @@
 
   
 
-<div id="board-container"  style="width: 1300px; margin: 70px 50px 50px 50px;">
+<div id="board-container"  style="width: 1300px; margin: 70px 50px 150px 50px;">
 	
 	<div id="button-div">
-		<legend>
-			<h2>공지사항</h2>
-				<%if(session.getAttribute("memberLoggedIn") !=null && memberLoggedIn.getMem_id().equals("admin")) {%>
-					
-				 <button onclick="fn_goNotice()" id="btn-add" >글쓰기</button>
-				 	   
-			   	<%} %>
-		</legend>
+				<div class="col-lg-8 main_title text-center">N o t i c e </div>
 	</div>
+	<hr>
+	<%if(session.getAttribute("memberLoggedIn") !=null && memberLoggedIn.getMem_id().equals("admin")) {%>
+					
+		<button onclick="fn_goNotice()" id="btn-add"  class="btn btn-default">글쓰기</button><br>
+				 	   
+	<%} %>
  	<div class="notice-container"  >
 	   <table id="tickets" class="table table-hover">
 	      <thead>
 		      <tr>
 		         <th style="width: 130px;">번호</th>
-		         <td>제목</td>
+		         <td style="text-align: left;">제목</td>
 		  		 <td>작성자</td>
-		         <td>작성일</td>
+		         <td style="width: 100px">작성일</td>
 		         <td>조회수</td>
 		      </tr>
 	      </thead>
@@ -124,7 +126,7 @@
 	      <tbody id="myTable">
 		      <tr>
 		         <th ><%= n.getNoticeNo() %></th>
-		         <td ><a href='<%= request.getContextPath() %>/notice/noticeView?no=<%= n.getNoticeNo() %>'><%= n.getNoticeTitle() %></a></td>
+		         <td style="text-align: left;" ><a href='<%= request.getContextPath() %>/notice/noticeView?no=<%= n.getNoticeNo() %>'><%= n.getNoticeTitle() %></a></td>
 		         <td class="c"><%= n.getNoticeWriter() %></td>
 		         <td class="c"><%= n.getNoticeDate() %></td>
 		         <td class="c"><%= n.getNoticeReadcount() %></td>
@@ -132,13 +134,15 @@
 	      </tbody>
 	      <% } %>
 	   </table>
-	    <div style="height: 100px; width: 100px;">
-  			<p id="pp"><%= "총 게시물 :" + request.getAttribute("totalContent") %>   </p>
-  			<input class="form-control" id="myInput" type="text" placeholder="찾기" >
-  			<div id="pageBar" style="width: 300px;">
+	   <div>
+	   		<input class="form-control" id="myInput" style="width: 150px;" type="text" placeholder="Search..." >
+	   		<p id="pp"><%= "총 게시물 :" + request.getAttribute("totalContent") %>   </p>
+	   </div>
+	    <div style="height: 130px; width: 300px; margin-bottom: 20px;">
+  			<div id="pageBar" style="width: 300px;display: inline;">
 		     <%=request.getAttribute("pageBar") %>   
 		   </div>
-		   
+		    
 		</div>
 		
 	</div>

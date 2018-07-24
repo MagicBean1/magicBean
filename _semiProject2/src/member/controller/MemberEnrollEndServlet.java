@@ -58,11 +58,11 @@ public class MemberEnrollEndServlet extends HttpServlet {
 		
 		String msg="";
 		String loc="";
-		String view="/views/common/msg.jsp";
+		String view="/views/common/communityMsg.jsp";
 		if(result>0)
 		{
 			msg="회원가입 성공!";
-			loc="/_semiProject/index.jsp";
+			loc="/index.jsp";
 			
 		}
 		else
