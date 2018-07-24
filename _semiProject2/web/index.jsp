@@ -25,7 +25,7 @@ $(function() {
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-        213123khkhkhk
+       한번더 시도
     <div class="carousel-inner" role="listbox">
         <div class="item active">
 	        <a href="#"><img src="<%=request.getContextPath() %>/images/carousel/1.jpg"></a>
