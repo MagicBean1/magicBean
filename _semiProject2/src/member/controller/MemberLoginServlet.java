@@ -72,7 +72,8 @@ public class MemberLoginServlet extends HttpServlet {
       }
       request.setAttribute("msg", msg);
       request.setAttribute("referer", referer);
-      
+      request.setAttribute("memId",mem_id);
+      request.setAttribute("mempw",mem_pw);
       request.getRequestDispatcher(view).forward(request, response);
    }
 
