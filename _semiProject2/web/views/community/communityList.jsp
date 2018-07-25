@@ -38,7 +38,7 @@
 <div class="container-fluid">    
 	  <div class="row content">
 		    <div class="col-lg-2 sidenav">
-		    	 <div class="w3-sidebar w3-bar-block w3-light-grey" style="width:280px;height:183px">
+		    	 <div class="w3-sidebar w3-bar-block w3-light-grey" style="width:280px;height:183px;box-shadow: 1px 1px 1px grey; ">
 			    	<h3 class="w3-bar-item w3-border-bottom" style="margin-bottom:0px;text-align: center;color:#1E68CB;font-weight:bold">Communication</h3>
 						    <a href="<%=request.getContextPath()%>/community/communityList" class="w3-bar-item w3-button w3-border-bottom" style="height:60px;background:white; text-align: center;">자유게시판</a>
   							<a href="<%=request.getContextPath()%>/reviewList" class="w3-bar-item w3-button w3-border-bottom" style="height:60px;background:white;text-align: center;">이용후기</a>
