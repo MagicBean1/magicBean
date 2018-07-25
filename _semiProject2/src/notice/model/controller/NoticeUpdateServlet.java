@@ -36,7 +36,7 @@ public class NoticeUpdateServlet extends HttpServlet {
 		int result = new NoticeService().updateNotice(upContent,updateNo);
 		
 		String msg = "";
-		String referer="/_semiProject/notice/noticeList";
+		String loc="/notice/noticeList";
 		
 		
 		if(result >0) {
@@ -48,9 +48,9 @@ public class NoticeUpdateServlet extends HttpServlet {
 			
 		}
 		request.setAttribute("msg", msg);
-		request.setAttribute("referer", referer); 
+		request.setAttribute("loc", loc); 
 		
-		request.getRequestDispatcher("/views/common/msg.jsp").forward(request,response);
+		request.getRequestDispatcher("/views/common/communityMsg.jsp").forward(request,response);
 		
 		
 	}

@@ -13,7 +13,7 @@
 	div#notice-container{width:800px; margin:0 auto; text-align:center;}
 	div#notice-container h2{margin:10px 0;}
 	form#tbl-notice{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
-	div#comment-container button#btn-insert{width: 60px; height: 50px; color:white; background: #3300ff; position: relative; top: -20px; }
+ 	div#comment-container button#btn-insert{width: 70px; height: 40px;   position: relative; top: -20px; } 
 	table#tbl-comment{width:580px; margin:0 auto; border-collapse:collapse; clear:both; } 
     table#tbl-comment tr td{border-bottom:1px solid; border-top:1px solid; padding:5px; text-align:left; line-height:120%;}
     table#tbl-comment tr td:first-of-type{padding: 5px 5px 5px 50px;}
@@ -27,17 +27,11 @@
     table#tbl-comment tr.level2 td:first-of-type{padding-left:30px;}
     table#tbl-comment tr.level2 sub.comment-writer {color:#8e8eff; font-size:14px}
     table#tbl-comment tr.level2 sub.comment-date {color:#ff9c8a; font-size:10px}
+    
 </style>
 
 <script>
-	function fn_updateNotice() {
-		alert("실행?");
-		var frm = $('#noticeFrm');
-		var url = "<%= request.getContextPath() %>/notice/noticeUpdate";
-		frm.attr("action", url);
-		alert("sub");
-		frm.submit();
-	}
+	
 
 	
 	
@@ -83,8 +77,8 @@
 				html+="<input type='hidden' name='noticeCommentWriter' value='<%=memberLoggedIn.getMem_id() %>'/>";
 				html+="<input type='hidden' name='noticeCommentLevel' value='2' />";
 				html+="<input type='hidden' name='noticeCommentRef' value='"+$(this).val()+"'/>";  /* $(this) = 이벤트가 걸린놈 = 버튼   [btn-reply의 value값]*/                    
-				html+="<textarea name='noticeCommentContent' cols='60' rows='1'></textarea>";
-				html+="<button type='submit' class='btn-insert2'>등록</button>";
+				html+="<textarea name='noticeCommentContent' cols='40' rows='3'></textarea>";
+				html+="<button type='submit' class='btn btn-default' style='top:-20px;'>등록</button>";
 				html+="</form>";
 				html+="</td>";
 				
@@ -123,9 +117,19 @@
 		var url = '<%= request.getContextPath() %>/notice/deleteNotice';
 		frm.attr("action", url);
 		frm.submit();		
-	}
+ }
  	
- 
+ function fn_updateNotice() {
+		alert("실행?");
+		var frm = $('#noticeFrm');
+		var url = "<%= request.getContextPath() %>/notice/noticeUpdate";
+		frm.attr("action", url);
+		alert("sub");
+		frm.submit();
+	}
+ function returnList() {
+	 location.href="<%=request.getContextPath()%>/notice/noticeList";
+}
 
 
 </script>
@@ -143,14 +147,18 @@
 					
 			</div>
 			<form id="noticeFrm"class="form-inline" action="<%=request.getContextPath()%>/notice/noticeUpdate" method="post">
-				
-				<td><input type="hidden" name="updateNo" value="<%=notice.getNoticeNo() %>">
-				<textarea name="updateContent" placeholder="<%=notice.getNoticeContent()%>" value="update_notice"  cols="85"   name="content" style="height:200px" onKeyup="var m=50;var s=this.scrollHeight;if(s>=m)this.style.pixelHeight=s+4"></textarea></td>
-				<% if(memberLoggedIn !=null && notice.getNoticeWriter().equals(memberLoggedIn.getMem_id())||"admin".equals(memberLoggedIn.getMem_id())){ %>
-			 		<hr>
-				 		<input type="submit" value="수정" onclick=""/>
-				 		<input type="button" value="삭제" onclick="deleteNotice()">
+				<%if(memberLoggedIn !=null && !(memberLoggedIn.getMem_id().equals("admin"))) {%>
+					<textarea readonly name="updateContent" placeholder="<%=notice.getNoticeContent()%>" value="update_notice"  cols="85"   name="content" style="height:200px" onKeyup="var m=50;var s=this.scrollHeight;if(s>=m)this.style.pixelHeight=s+4"></textarea>
+					<input type="hidden" name="updateNo" value="<%=notice.getNoticeNo() %>"><p></p>
+				<%}else if(memberLoggedIn !=null && memberLoggedIn.getMem_id().equals("admin")){ %>
+					<textarea  name="updateContent" placeholder="<%=notice.getNoticeContent()%>" value="update_notice"  cols="85"   name="content" style="height:200px" onKeyup="var m=50;var s=this.scrollHeight;if(s>=m)this.style.pixelHeight=s+4"></textarea><p></p>
+					<input type="hidden" name="updateNo" value="<%=notice.getNoticeNo() %>">
+			 		<input type="button" value="수정" onclick="fn_updateNotice()" class="btn btn-default"/>
+			 		<input type="button" value="삭제" onclick="deleteNotice()" class="btn btn-default">
+			 		
 	 			<%} %>
+	 			<input type="button" value="뒤로가기" onclick="returnList()" class="btn btn-default">
+	 			<hr>
 	 		</form>
 		</div>	 
 	</div>
@@ -163,7 +171,7 @@
 				<input type="hidden" name="noticeCommentLevel" value="1"/>  								   <!-- 깊이 ? 순서 ? -->
 				<input type="hidden" name="noticeCommentRef" value="0"/> 								   <!-- 댓글의 번호?? -->
 				<textarea rows="3" cols="60" name="noticeCommentContent"/></textarea>		
-				<button type="submit" id="btn-insert">등록 </button>
+				<button type="submit" id="btn-insert" class="btn btn-default">등록 </button>
 				
 			</form>
 		</div>
@@ -178,12 +186,14 @@
 					<td>
 						<sub class = 'comment-writer'><%=bc.getNoticeCommentWrite()%></sub>
 						<sub class = 'comment-date'><%=bc.getNoticeCommentDate() %></sub>
-						<br/>
+						<br/><br/>
 						<%= bc.getNoticeCommentContent() %>
 					</td>
+					<%if(memberLoggedIn !=null && memberLoggedIn.getMem_id().equals("admin")) {%>
 					<td>
 						<button class="btn-reply" value="<%=bc.getNoticeCommentNo()%>">답글</button>
 					</td>
+					<% }%>
 				</tr>
 			<%}       /* if */ 
 			else{%>
