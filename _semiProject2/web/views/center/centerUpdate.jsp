@@ -42,7 +42,7 @@
 	    </div>
     <div class="row" >
 	    <div class="col-lg-8 main_title text-center">
-	    	COMMUNICATION
+	    	CUSTOMER CENTER
 	    </div>
     <div class="col-lg-8 content"> 
    		<div class="row">
