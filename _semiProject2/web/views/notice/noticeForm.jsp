@@ -37,6 +37,7 @@
 	   location.href="<%=request.getContextPath()%>/notice/noticeList";
 	
 	}
+ 
    
 </script>   
     
@@ -54,10 +55,12 @@
         <label for="writer">작성자 :</label>
       <input type="text" class="form-control"   name="writer" value="admin"  style="border-radius: 10px;" readonly>
     </div><hr>
-    
-
-	<td colspan="2"><textarea  cols="85"   name="content" style="height:200px;border-radius: 10px;"  ></textarea></td>
+		<td colspan="2">
+			<textarea  cols="85"  id='content' name='content' style="height:200px;border-radius: 10px;"  ></textarea>
+		</td>
+	
 	<hr>
+	
 		<input type="submit" value="등록하기" onclick="return validate()" class="btn btn-default" />
 		<input type="button" value="돌아가기" onclick="return rtList()"  class="btn btn-default" />
 		<!-- <td  style="position: relative;" ></td>  -->  
