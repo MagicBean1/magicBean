@@ -118,6 +118,18 @@ public class NoticeService {
 		
 	}
 	
-	
-	
+	public int commentCountAdd(int noticeRef) {
+		Connection conn =getConnection();
+		
+		int result = new NoticeDAO().commentCountAdd(conn,noticeRef);
+		
+		if(result>0){
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+
+		return result;
+	}
 }

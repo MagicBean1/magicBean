@@ -44,6 +44,8 @@ public class NoticeCommentInsertServlet extends HttpServlet {
 		System.out.println("boardCommentRef" +boardCommentRef);
 		System.out.println("boardCommentWriter" +boardCommentWriter);
 		System.out.println("boardCommentContent" +boardCommentContent);*/
+
+		
 		
 		NoticeComment bc = new NoticeComment();
 		bc.setNoticeRef(noticeRef);
@@ -52,7 +54,7 @@ public class NoticeCommentInsertServlet extends HttpServlet {
 		bc.setNoticeCommentLevel(noticeCommentLevel);
 		bc.setNoticeCommentRef(noticeCommentRef);
 		
-		
+		int coCount=0;
 		int result = new NoticeService().insertNoticeComment(bc);
 		
 		
@@ -62,7 +64,8 @@ public class NoticeCommentInsertServlet extends HttpServlet {
 		/*WEB-INF*/
 		if(result>0) {
 			msg= "댓글등록 성공";
-			/*referer = "/_semiProject/notice/noticeView?no="+noticeRef;*/
+			new NoticeService().commentCountAdd(noticeRef);
+			System.out.println("1이면 완료" + coCount);
 		}else {
 			msg= "댓글등록 실패";
 		}										

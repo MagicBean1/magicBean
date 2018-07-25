@@ -124,9 +124,12 @@ div.main_title{font:italic normal normal 50px/1.4em dinneuzeitgroteskltw01-_8124
 	      </thead>
 	      <% for(Notice n : list)  { %>
 	      <tbody id="myTable">
-		      <tr>
+		      <tr>																																
 		         <th ><%= n.getNoticeNo() %></th>
-		         <td style="text-align: left;" ><a href='<%= request.getContextPath() %>/notice/noticeView?no=<%= n.getNoticeNo() %>'><%= n.getNoticeTitle() %></a></td>
+		         <td style="text-align: left;" ><a href='<%= request.getContextPath() %>/notice/noticeView?no=<%= n.getNoticeNo() %>'><%= n.getNoticeTitle() %>&nbsp;&nbsp;&nbsp;<span class="badge"><%=n.getNoticeCommentCount() %></span> </a></td>
+		        
+		     
+		         <!-- <li role="presentation"><a href="#">Messages </a></li> -->
 		         <td class="c"><%= n.getNoticeWriter() %></td>
 		         <td class="c"><%= n.getNoticeDate() %></td>
 		         <td class="c"><%= n.getNoticeReadcount() %></td>

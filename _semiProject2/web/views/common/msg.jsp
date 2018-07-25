@@ -15,7 +15,7 @@
 %>
 <body>
    <script>
-   	alert('<%= msg %>');
+   	
 	location.href = "<%=referer %>";
 	<%= script != null ? script : "" %>;
    </script>

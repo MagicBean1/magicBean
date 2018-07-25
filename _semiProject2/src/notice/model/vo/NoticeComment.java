@@ -10,6 +10,8 @@ public class NoticeComment {
 	private int noticeRef;
 	private int noticeCommentRef;
 	private Date noticeCommentDate;
+	
+	
 	public NoticeComment() {
 		super();
 		// TODO Auto-generated constructor stub

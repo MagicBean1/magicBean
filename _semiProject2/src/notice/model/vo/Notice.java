@@ -9,12 +9,19 @@ public class Notice {
 	private String noticeContent;
 	private Date noticeDate;
 	private int noticeReadcount;
+	private int noticeCommentCount;
+	@Override
+	public String toString() {
+		return "Notice [noticeNo=" + noticeNo + ", noticeTitle=" + noticeTitle + ", noticeWriter=" + noticeWriter
+				+ ", noticeContent=" + noticeContent + ", noticeDate=" + noticeDate + ", noticeReadcount="
+				+ noticeReadcount + ", noticeCommentCount=" + noticeCommentCount + "]";
+	}
 	public Notice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Notice(int noticeNo, String noticeTitle, String noticeWriter, String noticeContent, Date noticeDate,
-			int noticeReadcount) {
+			int noticeReadcount, int noticeCommentCount) {
 		super();
 		this.noticeNo = noticeNo;
 		this.noticeTitle = noticeTitle;
@@ -22,6 +29,7 @@ public class Notice {
 		this.noticeContent = noticeContent;
 		this.noticeDate = noticeDate;
 		this.noticeReadcount = noticeReadcount;
+		this.noticeCommentCount = noticeCommentCount;
 	}
 	public int getNoticeNo() {
 		return noticeNo;
@@ -59,12 +67,13 @@ public class Notice {
 	public void setNoticeReadcount(int noticeReadcount) {
 		this.noticeReadcount = noticeReadcount;
 	}
-	@Override
-	public String toString() {
-		return "Notice [noticeNo=" + noticeNo + ", noticeTitle=" + noticeTitle + ", noticeWriter=" + noticeWriter
-				+ ", noticeContent=" + noticeContent + ", noticeDate=" + noticeDate + ", noticeReadcount="
-				+ noticeReadcount + "]";
+	public int getNoticeCommentCount() {
+		return noticeCommentCount;
 	}
+	public void setNoticeCommentCount(int noticeCommentCount) {
+		this.noticeCommentCount = noticeCommentCount;
+	}
+	
 	
 	
 }
