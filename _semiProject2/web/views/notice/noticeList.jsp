@@ -126,7 +126,14 @@ div.main_title{font:italic normal normal 50px/1.4em dinneuzeitgroteskltw01-_8124
 	      <tbody id="myTable">
 		      <tr>																																
 		         <th ><%= n.getNoticeNo() %></th>
-		         <td style="text-align: left;" ><a href='<%= request.getContextPath() %>/notice/noticeView?no=<%= n.getNoticeNo() %>'><%= n.getNoticeTitle() %>&nbsp;&nbsp;&nbsp;<span class="badge"><%=n.getNoticeCommentCount() %></span> </a></td>
+		         <td style="text-align: left;" >
+			         <a href='<%= request.getContextPath() %>/notice/noticeView?no=<%= n.getNoticeNo() %>'>
+			         <%= n.getNoticeTitle() %>&nbsp;&nbsp;&nbsp;
+			         <%if(n.getNoticeCommentCount() !=0){ %>
+			         	<span class="badge"><%=n.getNoticeCommentCount() %></span> 
+			         <%} %>
+			         </a>
+			     </td>
 		        
 		     
 		         <!-- <li role="presentation"><a href="#">Messages </a></li> -->
