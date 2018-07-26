@@ -7,7 +7,6 @@
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
-  </classpathentry>
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>

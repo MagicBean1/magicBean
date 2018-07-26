@@ -60,6 +60,7 @@ public class NoticeDAO {
 				n.setNoticeContent(rs.getString("notice_content"));
 				n.setNoticeDate(rs.getDate("notice_date"));
 				n.setNoticeReadcount(rs.getInt("notice_readcount"));
+				n.setNoticeCommentCount(rs.getInt("comment_count"));
 				list.add(n);
 				
 				
@@ -113,7 +114,7 @@ public class NoticeDAO {
 		String sql = prop.getProperty("insertNotice");
 		try {
 			
-			
+			System.out.println(sql);
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, n.getNoticeTitle());
 			pstmt.setString(2, n.getNoticeWriter());
@@ -175,11 +176,11 @@ public class NoticeDAO {
 		int result = 0;
 		String sql = prop.getProperty("insertNoticeCount");
 		try {
-			
+			System.out.println(sql);
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, NoticeNo);
 			result = pstmt.executeUpdate();
-			System.out.println(result);
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -285,4 +286,24 @@ public class NoticeDAO {
 		
 		
 	}
+	public int commentCountAdd(Connection conn, int noticeRef) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("commentCount");
+		try {
+			System.out.println(sql);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, noticeRef);
+			result = pstmt.executeUpdate();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+			
+		close(pstmt);
+		
+		return result;
+	}
+
+
 }

@@ -34,7 +34,7 @@ public class NoticeViewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int noticeNo= Integer.parseInt(request.getParameter("no"));
-		System.out.println(noticeNo);
+		
 //		client가 보낸 쿠키 확인
 		
 		Cookie[] cookie = request.getCookies();
@@ -58,13 +58,13 @@ public class NoticeViewServlet extends HttpServlet {
 					}
 				}
 		}
-		if(!hasRead) { /*읽지 않았다면 쿠키를 만들어서 저장*/
+		if(!hasRead) { //읽지 않았다면 쿠키를 만들어서 저장
 			
-			Cookie noticeCookie = new Cookie("noticeCookie", noticeCookieVal+"|"+noticeNo+"|"); /*10번읽으면 |10| 이렇게 저장 noticeCookie안에*/
-			noticeCookie.setMaxAge(-1);/*브라우저가 끊어져야 삭제 세션이 끊어져야*/
+			Cookie noticeCookie = new Cookie("noticeCookie", noticeCookieVal+"|"+noticeNo+"|"); //10번읽으면 |10| 이렇게 저장 noticeCookie안에
+			noticeCookie.setMaxAge(-1);//브라우저가 끊어져야 삭제 세션이 끊어져야
 			response.addCookie(noticeCookie);
 		}
-		
+		System.out.println(hasRead);
 		System.out.println(noticeNo);
 		Notice notice= new NoticeService().selectOne(noticeNo,hasRead);
 //		Notice notice= new NoticeService().selectOne(noticeNo);
