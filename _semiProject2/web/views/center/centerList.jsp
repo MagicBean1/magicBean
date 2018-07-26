@@ -16,8 +16,13 @@
 	.gi-2x{font-size: 2.5em;margin-top:20px}
 </style>
 <script>
-
-   function fn_write(login)
+	function fn_check(){
+		var title="openPwdChk";
+		
+		var status="left=500px, top=100px, width=300px, height=200px, menubar=no, status=no, scrollbars=yes";
+		var popup=window.open('',title,status);
+	}
+   function fn_write()
    {	
 	   	location.href="<%=request.getContextPath()%>/centerForm";		
    }
@@ -35,7 +40,10 @@
 					    	<div class="col-lg-3" style="width:180px;margin-left:30px">
 					    		<span class="glyphicon glyphicon-headphones gi-2x"></span>
 					    	</div>
-					    	<div class="col-lg-5" style="margin-top:20px">고객센터</div>
+					    	<div class="col-lg-5" style="margin-top:20px">고객센터
+					    		<div style="font-size:20px;font-style:normal">1:1 문의를 통해 불편사항을 해결해드려요.</div>
+					    	</div>
+					    	
 				    	</div>
 				    	
 				    </div>

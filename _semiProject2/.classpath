@@ -7,9 +7,5 @@
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
-		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
 </classpath>

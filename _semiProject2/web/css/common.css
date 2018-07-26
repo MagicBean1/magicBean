@@ -47,15 +47,15 @@
 }
 
 /* LoginModal */
-.modal {
+ .modal {
 	text-align: center;
 }
 
-.modal-content {
+ .modal-content {
 	background-color: rgb(30, 86, 173);
 	color: #fff;
 	position: static;
-}
+} 
 
 @media screen and (min-width: 768px) { 
 	.modal:before {
@@ -70,7 +70,7 @@
 	display: inline-block;
 	text-align: left;
 	vertical-align: middle;
-}
+} 
 
 
 /* Footer */
