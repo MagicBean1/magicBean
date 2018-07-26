@@ -32,7 +32,7 @@ public class NoticeListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	
+	/*int noticeNo = Integer.parseInt( request.getParameter(""));*/
 	int numPerPage =10;
 	int cPage;
 		try {
@@ -46,7 +46,8 @@ public class NoticeListServlet extends HttpServlet {
 		
 		
 		List<Notice> list = new NoticeService().selectNoticeList(cPage,numPerPage);
-		
+		System.out.println(list);
+		/*int coCount = new NoticeService().commentCount(list.get);*/
 		/*페이지 선언!
 		====사용 변수====
 		1. cPage : 현재 페이지

@@ -1,4 +1,4 @@
-package notice.model.controller;
+package member.controller;
 
 import java.io.IOException;
 
@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
+import member.model.service.MemberService;
+import member.model.vo.Member;
 
 /**
- * Servlet implementation class NoticeUpdateServlet
+ * Servlet implementation class MemberUpdateServlet
  */
-@WebServlet("/notice/noticeUpdate")
-public class NoticeUpdateServlet extends HttpServlet {
+@WebServlet("/member/memberUpdate")
+public class MemberUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeUpdateServlet() {
+    public MemberUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,28 +30,16 @@ public class NoticeUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String upContent =(String)request.getParameter("updateContent");
-		int updateNo =Integer.parseInt(request.getParameter("updateNo"));
+		String userId = request.getParameter("mem_id");
+		System.out.println(userId);
+		
+
+		
+		request.getRequestDispatcher("/views/member/memberUpdate.jsp").forward(request, response);
 		
 		
-		int result = new NoticeService().updateNotice(upContent,updateNo);
-		
-		String msg = "";
-		String loc="/notice/noticeList";
 		
 		
-		if(result >0) {
-			msg="공지사항 수정 완료!!";
-			
-			
-		}else {
-			msg="공지사항 수정 실패!!";
-			
-		}
-		request.setAttribute("msg", msg);
-		request.setAttribute("loc", loc); 
-		
-		request.getRequestDispatcher("/views/common/communityMsg.jsp").forward(request,response);
 		
 		
 	}
