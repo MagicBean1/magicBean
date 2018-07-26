@@ -11,7 +11,7 @@
 	div.content{background-color:#F0F0F0}
 </style>
  <script>
-    	function fn_formDate(){
+    	function validate(){
     		var content=$("[name=content]").val();
     		var title=$("[name=title]").val();
     		
@@ -27,13 +27,13 @@
     	}
     	
     	function fn_cancel(){
-    		location.href="<%=request.getContextPath()%>/community/communityList";
+    		location.href="<%=request.getContextPath()%>/center/centerList";
     	}
     </script>
 <section>
 
 <div class="container-fluid">    
-  <form class="form-horizontal" action="<%=request.getContextPath()%>/community/communityFormEnd" method="post" enctype="multipart/form-data">
+  <form class="form-horizontal" action="<%=request.getContextPath()%>/centerFormEnd" method="post" enctype="multipart/form-data">
   	<div class="row">
 	    <div class="col-lg-2 sidenav">
 	    </div>
@@ -45,7 +45,6 @@
    		<div class="row">
    			<div class="text-center sub_title">Content Impormation</div>
    		</div>
- 
    		
    		<div class="row form-group" style="padding-top:40px">
    			<div class="col-lg-3"></div>
@@ -55,7 +54,8 @@
    					<input type="text" class="form-control" name="writer" readonly value="<%=memberLoggedIn.getMem_id()%>"/>
    				</div>
    			</div>
-   			<div class="col-lg-3"></div>   			
+   			<div class="col-lg-3"></div>
+   			
    		</div>
    		
    		<div class="row form-group" style="padding-top:40px">
@@ -94,7 +94,7 @@
    			<div class="col-lg-4"></div>
    			<div class="col-lg-4">
    					<div class="col-lg-3">
-   						<button type="submit" class="btn btn-primary" value="등록하기" onclick="return fn_formDate();" style="background-color:#1E68CB; height:50px;width:200px " >save</button>
+   						<button type="submit" class="btn btn-primary" value="등록하기" onclick="return validate();" style="background-color:#1E68CB; height:50px;width:200px " >save</button>
    					</div>
    					<div class="col-lg-3"></div>
    					<div class="col-lg-3">

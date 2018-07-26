@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="community.model.vo.Community"%>
+    pageEncoding="UTF-8" import="center.model.vo.Center"%>
 <%@ include file='/views/common/header.jsp' %>
 <%
-	Community c = (Community)request.getAttribute("c");
-	System.out.println(c.getOriginalFileName());
+	Center c = (Center)request.getAttribute("c");
 %>
 <style>
 	div.container-fluid{padding-top:10px; padding-bottom:10px}
@@ -21,10 +20,10 @@
 </style>
 <script>
 	function fn_update(){
-		location.href="<%=request.getContextPath()%>/views/community/communityUpdate.jsp?writer=<%=c.getCommunityWriter()%>&title=<%=c.getCommunityTitle()%>&content=<%=c.getCommunityContent() %>&no=<%=c.getCommunityNo()%>";
+		location.href="<%=request.getContextPath()%>/views/community/communityUpdate.jsp?writer=<%=c%>&title=<%=c.getCenterTitle()%>&content=<%=c.getCenterContent() %>&no=<%=c.getCenterNo()%>";
 	}
 	function fn_delete(){
-		location.href="<%=request.getContextPath()%>/community/communityDelete?no=<%=c.getCommunityNo()%>";
+		location.href="<%=request.getContextPath()%>/community/communityDelete?no=<%=c.getCenterNo()%>";
 	}
 	function fn_cancel(){
 		location.href="<%=request.getContextPath()%>/community/communityList";
@@ -47,14 +46,14 @@
 			   		</div>
 			   		<div class="row" style="padding-top:40px">
 			   			<div class="col-lg-3"></div>
-			   			<div class="col-lg-3" style="border:1px solid #1E68CB; height:40px; padding-top:7px;color:#1E68CB" ><span style="font-weight:bold">NO.</span> <%=c.getCommunityNo() %></div>
-			   			<div class="col-lg-3" style="border:1px solid #1E68CB;height:40px; padding-top:7px;color:#1E68CB"><span style="font-weight:bold">WRITER</span> <%=c.getCommunityWriter() %></div>
+			   			<div class="col-lg-3" style="border:1px solid #1E68CB; height:40px; padding-top:7px;color:#1E68CB" ><span style="font-weight:bold">NO.</span> <%=c.getCenterNo() %></div>
+			   			<div class="col-lg-3" style="border:1px solid #1E68CB;height:40px; padding-top:7px;color:#1E68CB"><span style="font-weight:bold">WRITER</span> <%=c.getCenterWriter() %></div>
 			   			<div class="col-lg-3"></div>
 			   		</div>
 			   		
 			   		<div class="row" style="padding-top:40px">
 			   			<div class="col-lg-3"></div>
-			   			<div class="col-lg-6 div_title"><span style="font-weight:bold">TITLE</span> <%=c.getCommunityTitle() %></div>
+			   			<div class="col-lg-6 div_title"><span style="font-weight:bold">TITLE</span> <%=c.getCenterTitle() %></div>
 			   			<div class="col-lg-3"></div>
 			   		</div>
 			   		
@@ -66,30 +65,17 @@
 			    				<img style="width:450px; height:300px"src='<%=request.getContextPath() %>/upload/community/<%=c.getOriginalFileName()%>' width='16px'>
 			    				</p>
 			    			<br><br>
-			   				<%=c.getCommunityContent() %>
+			   				<%=c.getCenterContent() %>
 			   			</div>
 			   			<%} else{%>
 			    			<div class="col-lg-6 div_content" style="border:1px solid #1E68CB; width:644.32px; height:250px; padding-top:7px;color:#1E68CB"><span style="font-weight:bold">CONTENT</span><br><br>
-			   				<%=c.getCommunityContent() %>
+			   				<%=c.getCenterContent() %>
 			   				</div>
 			    			<%} %>
 			   			<div class="col-lg-3"></div>
 			   		</div>
-			   		
-			   		
-			   		<%if(memberLoggedIn!=null) {%> 
-			   			<%if(memberLoggedIn.getMem_id().equals("admin")){ %>
-			   				<div class="row" style="padding-top:40px;padding-bottom:100px">
-					   			<div class="col-lg-3"></div>
-					   			<div class="col-lg-6">
-					   				<div class="col-lg-3"></div>
-					   				<div class="col-lg-3"><button type="button" class="btn btn-primary" id="btn2" onclick="fn_delete()">delet</button></div>
-					   				<div class="col-lg-3"></div>
-					   				<div class="col-lg-3"></div>
-					   			</div>
-					   			<div class="col-lg-3"></div>
-			   				</div>
-			   			<%}else if(memberLoggedIn.getMem_id().equals(c.getCommunityWriter())) {%> 
+			   		<%if(memberLoggedIn!=null) {%>
+			   			<%if(memberLoggedIn.getMem_id().equals(c.getCenterWriter())) {%>
 			   		<div class="row" style="padding-top:40px;padding-bottom:100px">
 			   			<div class="col-lg-3"></div>
 			   			<div class="col-lg-6">
@@ -105,8 +91,7 @@
 			   			<%} %>
 			   		<%} else{ %>
 			   			<div class="row" style="padding-top:40px;padding-bottom:100px"></div>
-			   		<%} %>
-			   		
+			   		<%}%>
 			    </div>
 		    </div>
 		   <!--  <div class="col-lg-2 sidenav">

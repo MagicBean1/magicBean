@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file='/views/common/header.jsp' %>
+<%
+	int no = Integer.parseInt(request.getParameter("no"));
+	String writer=request.getParameter("writer");
+	String title=request.getParameter("title");
+	String content=request.getParameter("content");
+%>
 <style>
 	div.container-fluid{padding-top:10px; padding-bottom:10px}
 	div.col-lg-2 {background-color:white;height:800px}
@@ -11,7 +17,7 @@
 	div.content{background-color:#F0F0F0}
 </style>
  <script>
-    	function fn_formDate(){
+    	function validate(){
     		var content=$("[name=content]").val();
     		var title=$("[name=title]").val();
     		
@@ -26,14 +32,11 @@
     		return true;
     	}
     	
-    	function fn_cancel(){
-    		location.href="<%=request.getContextPath()%>/community/communityList";
-    	}
     </script>
 <section>
 
 <div class="container-fluid">    
-  <form class="form-horizontal" action="<%=request.getContextPath()%>/community/communityFormEnd" method="post" enctype="multipart/form-data">
+  <form class="form-horizontal" action="<%=request.getContextPath()%>/centerUpdate" method="post" enctype="multipart/form-data">
   	<div class="row">
 	    <div class="col-lg-2 sidenav">
 	    </div>
@@ -45,17 +48,27 @@
    		<div class="row">
    			<div class="text-center sub_title">Content Impormation</div>
    		</div>
- 
+   		
+   		<div class="row form-group" style="padding-top:40px">
+   			<div class="col-lg-3"></div>
+   			<div class="col-lg-6">
+   				<label class="control-label col-sm-2">NO</label>
+   				<div class="col-sm-10">
+   					<input type="text" class="form-control" name="no" readonly value="<%=no%>"/>
+   				</div>
+   			</div>
+   			<div class="col-lg-3"></div>
+   		</div>
    		
    		<div class="row form-group" style="padding-top:40px">
    			<div class="col-lg-3"></div>
    			<div class="col-lg-6">
    				<label class="control-label col-sm-2">NAME</label>
    				<div class="col-sm-10">
-   					<input type="text" class="form-control" name="writer" readonly value="<%=memberLoggedIn.getMem_id()%>"/>
+   					<input type="text" class="form-control" name="writer" readonly value="<%=writer%>"/>
    				</div>
    			</div>
-   			<div class="col-lg-3"></div>   			
+   			<div class="col-lg-3"></div>
    		</div>
    		
    		<div class="row form-group" style="padding-top:40px">
@@ -63,7 +76,7 @@
    			<div class="col-lg-6">
    				<label class="control-label col-sm-2">TITLE</label>
    				<div class="col-sm-10">
-   					<input type="text" class="form-control" name="title" placeholder="Enter title" required/>
+   					<input type="text" class="form-control" name="title" value="<%=title%>" required/>
    				</div>
    			</div>
    			<div class="col-lg-3"></div>
@@ -85,7 +98,7 @@
    			<div class="col-lg-6">
    				<label for="comment" class="control-label col-sm-2">COMMENT</label>
    				<div class="col-sm-10">
-   				<textarea rows="6" class="form-control" placeholder="Enter comment" name="content"></textarea>
+   				<textarea rows="6" class="form-control"  name="content"><%=content%></textarea>
    				</div>
    			</div>
    			<div class="col-lg-3"></div>
@@ -93,15 +106,7 @@
    		<div class="row" style="padding-top:40px;padding-bottom:100px">
    			<div class="col-lg-4"></div>
    			<div class="col-lg-4">
-   					<div class="col-lg-3">
-   						<button type="submit" class="btn btn-primary" value="등록하기" onclick="return fn_formDate();" style="background-color:#1E68CB; height:50px;width:200px " >save</button>
-   					</div>
-   					<div class="col-lg-3"></div>
-   					<div class="col-lg-3">
-   						<button type="button" class="btn btn-primary" id="btn1" onclick="fn_cancel()" style="background-color:#1E68CB; height:50px;width:200px;margin-left:45px ">cancel</button>
-   					</div>
-   					<div class="col-lg-3"></div>
-   			</div>
+   					<button type="submit" class="btn btn-primary" value="등록하기" onclick="return validate();" style="background-color:#1E68CB; height:50px;width:482px " >save</button></div>
    			<div class="col-lg-4"></div>
    		</div>
     </div>
